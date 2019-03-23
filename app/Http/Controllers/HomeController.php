@@ -13,7 +13,13 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','auth:admin']);
+    }
+
+    //Custom guard for admin
+    protected function guard()
+    {
+      return Auth::guard(['user','admin']);
     }
 
     /**

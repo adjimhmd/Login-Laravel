@@ -16,6 +16,12 @@ class AdminController extends Controller
         $this->middleware('auth:admin');
     }
 
+    //Custom guard for admin
+    protected function guard()
+    {
+      return Auth::guard('admin');
+    }
+
     /**
      * Show the application dashboard.
      *
