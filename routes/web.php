@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
@@ -25,8 +24,8 @@ Route::prefix('admin')->group(function() {
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
-	Route::get('register', 'Auth\AdminRegisterController@showRegistrationForm')->name('admin.register');
-	Route::post('register', 'Auth\AdminRegisterController@register')->name('admin.register.submit');
+	Route::get('/register', 'Auth\AdminRegisterController@showRegistrationForm')->name('admin.register');
+	Route::post('/register', 'Auth\AdminRegisterController@register')->name('admin.register.submit');
 	Route::get('/', 'AdminController@index')->name('admin');
 
 });
